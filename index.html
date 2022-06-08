@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Dice game</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="container">
+        <div class="game-left player-active">
+          <h2 class="player">PLAYER 1</h2>
+          <p class="p-class"><span class="player-0-score">22</span></p>
+          <div class="current-left">
+            <h3 class="current">CURRENT</h3>
+            <p><span class="current-score-0">0</span></p>
+          </div>
+        </div>
+
+        <div class="container-center">
+          <button class="btn-game">↻ New Game</button>
+          <img src="./img/dice-1.png" class="dice-img" alt="" />
+          <button class="btn-roll">🎲 Roll Dice</button>
+          <button class="btn-hold">⌛ Hold</button>
+        </div>
+
+        <div class="game-right">
+          <h2 class="player">PLAYER 2</h2>
+          <p class="p-class"><span class="player-1-score">22</span></p>
+          <div class="current-right">
+            <h3 class="current">CURRENT</h3>
+            <p><span class="current-score-1">0</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  background-image: linear-gradient(to bottom right, #488c91 0%, #13415f 100%);
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: rgba(244, 244, 244, 0.5);
+  width: 1100px;
+  height: 600px;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* padding-top: 5rem; */
+}
+
+.game-left {
+  width: 550px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.game-right {
+  width: 550px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.game-left .current-left,
+.current-right {
+  padding-top: 1rem;
+  background-image: linear-gradient(to bottom right, #13828a 0%, #597d96 100%);
+  width: 190px;
+  height: 100px;
+  border-radius: 15px;
+}
+
+.player {
+  margin-top: 5.5rem;
+  font-size: 2.5rem;
+  padding-bottom: 1.2rem;
+}
+
+.p-class {
+  padding-bottom: 8rem;
+}
+
+.player-0-score,
+.player-1-score {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 4.5rem;
+  color: #13415f;
+}
+
+.current-score-0,
+.current-score-1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.container-center {
+  width: 0px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  z-index: 2;
+}
+
+.btn-game {
+  font-family: 'Inconsolata', monospace;
+  background-color: #fff;
+  opacity: 0.8;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  width: 200px;
+  height: 50px;
+  margin-top: 2.8rem;
+  margin-bottom: 4rem;
+  font-size: 1.9rem;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-roll {
+  font-family: 'Inconsolata', monospace;
+  background-color: #fff;
+  opacity: 0.8;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  width: 190px;
+  height: 50px;
+  margin-bottom: 1.5rem;
+  font-size: 1.7rem;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-hold {
+  font-family: 'Inconsolata', monospace;
+  background-color: #fff;
+  opacity: 0.8;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  width: 150px;
+  height: 40px;
+  font-size: 1.6rem;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-hold:hover,
+.btn-roll:hover,
+.btn-game:hover {
+  opacity: 0.6;
+}
+
+.container-center .dice-img {
+  width: 150px;
+  height: 150px;
+  padding-bottom: 4rem;
+}
+
+.player-active {
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: all 0.7s ease-in;
+}
+
+.hidden {
+  opacity: 0.001;
+}
