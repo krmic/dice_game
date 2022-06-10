@@ -13,13 +13,35 @@ const btnNew = document.querySelector('.btn-game');
 const btnRoll = document.querySelector('.btn-roll');
 const btnHold = document.querySelector('.btn-hold');
 
-score1.textContent = 0;
-score2.textContent = 0;
-diceEl.classList.add('hidden');
+const rules = document.querySelector('.rules');
+const rulesMessage = document.querySelector('.rules-message');
+const closeBtn = document.querySelector('.close');
+const overlay = document.querySelector('.overlay');
 
-const scores = [0, 0];
-let currentScore = 0;
-let activePlayer = 0;
+let scores, currentScore, activePlayer, playing;
+
+const init = function () {
+  scores = [0, 0];
+  currentScore = 0;
+  activePlayer = 0;
+  playing = true;
+
+  score1.textContent = 0;
+  score2.textContent = 0;
+  current1El.textContent = 0;
+  current2El.textContent = 0;
+
+  diceEl.classList.add('hidden');
+  diceEl.classList.remove('hidden-2');
+  btnHold.classList.remove('hidden-2');
+  btnRoll.classList.remove('hidden-2');
+  document.querySelector('.player-0').classList.remove('player-winner');
+  document.querySelector('.player-1').classList.remove('player-winner');
+  document.querySelector(`.player-0`).classList.add('player-active');
+  document.querySelector(`.player-1`).classList.remove('player-active');
+};
+
+init();
 
 const switchPlayer = function () {
   document.querySelector(`.current-score-${activePlayer}`).textContent = 0;
@@ -31,37 +53,88 @@ const switchPlayer = function () {
 
 //ROlling dice
 btnRoll.addEventListener('click', function () {
-  //Generate random dice roll
-  const dice = Math.trunc(Math.random() * 6) + 1;
+  if (playing) {
+    //Generate random dice roll
+    const dice = Math.trunc(Math.random() * 6) + 1;
 
-  //Display dice
-  diceEl.classList.remove('hidden');
-  diceEl.src = `./img/dice-${dice}.png`;
+    //Display dice
+    diceEl.classList.remove('hidden');
+    diceEl.src = `./img/dice-${dice}.png`;
 
-  //Check for rolled dice option
-  if (dice !== 1) {
-    //add dice to current score
-    currentScore += dice;
-    document.querySelector(
-      `.current-score-${activePlayer}`
-    ).textContent = currentScore;
-  } else {
-    // switch to next player
-    switchPlayer();
+    //Check for rolled dice option
+    if (dice !== 1) {
+      //add dice to current score
+      currentScore += dice;
+      document.querySelector(
+        `.current-score-${activePlayer}`
+      ).textContent = currentScore;
+    } else {
+      // switch to next player
+      switchPlayer();
+    }
   }
 });
 
 btnHold.addEventListener('click', function () {
-  // add current score to active player score
-  scores[activePlayer] += currentScore;
+  if (playing) {
+    // add current score to active player score
+    scores[activePlayer] += currentScore;
 
-  console.log(scores);
+    console.log(scores);
 
-  document.querySelector(`.player-${activePlayer}-score`).textContent =
-    scores[activePlayer];
+    document.querySelector(`.player-${activePlayer}-score`).textContent =
+      scores[activePlayer];
 
-  //switch player
-  switchPlayer();
+    // check if score is >=100
+    if (scores[activePlayer] >= 70) {
+      //finish the game
+      playing = false;
+      document
+        .querySelector(`.player-${activePlayer}`)
+        .classList.add('player-winner');
+      document
+        .querySelector(`.player-${activePlayer}`)
+        .classList.remove('player-active');
 
-  // check if score is >=100
+      diceEl.classList.add('hidden-2');
+      btnHold.classList.add('hidden-2');
+      btnRoll.classList.add('hidden-2');
+    } else {
+      //switch player
+      switchPlayer();
+    }
+  }
+});
+
+btnNew.addEventListener('click', init);
+
+const addHidden = function () {
+  overlay.classList.add('hidden-3');
+  closeBtn.classList.add('hidden-3');
+  rulesMessage.classList.add('hidden-3');
+};
+
+const removeHidden = function () {
+  rulesMessage.classList.remove('hidden-3');
+  closeBtn.classList.remove('hidden-3');
+  overlay.classList.remove('hidden-3');
+};
+
+rules.addEventListener('click', function () {
+  removeHidden();
+});
+
+closeBtn.addEventListener('click', function () {
+  addHidden();
+});
+
+overlay.addEventListener('click', function () {
+  addHidden();
+});
+
+document.addEventListener('keydown', function (event) {
+  console.log(event.key);
+  if (event.key === 'Escape' && !overlay.classList.contains('hidden-3')) {
+    addHidden();
+  }
 });

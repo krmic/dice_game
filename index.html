@@ -20,8 +20,23 @@
   </head>
   <body>
     <div class="main-container">
+      <button class="rules">🤔 Rules</button>
+      <button class="close hidden-3">&times;</button>
+      <div class="overlay hidden-3"></div>
+      <div class="rules-message hidden-3">
+        <p>
+          On a turn, a player rolls the dice repeatedly. Main goal is to
+          accumulate as many points as possible. You can roll as many times as
+          you want, and save your score by pressing the hold button, but if a
+          player rolls a 1, the player's turn is over and all points that he has
+          accumulated during this turn are gone. Rolling a 1 doesn't wipe out
+          your entire score from previous turns, just the total earned during
+          that particular roll. When a player reaches a total of 70 points, the
+          game ends and that player is the winner.
+        </p>
+      </div>
       <div class="container">
-        <div class="game-left player-active">
+        <div class="game-left player-0 player-active">
           <h2 class="player">PLAYER 1</h2>
           <p class="p-class"><span class="player-0-score">22</span></p>
           <div class="current-left">
@@ -37,7 +52,7 @@
           <button class="btn-hold">⌛ Hold</button>
         </div>
 
-        <div class="game-right">
+        <div class="game-right player-1">
           <h2 class="player">PLAYER 2</h2>
           <p class="p-class"><span class="player-1-score">22</span></p>
           <div class="current-right">

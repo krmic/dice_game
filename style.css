@@ -158,11 +158,89 @@ img {
   padding-bottom: 4rem;
 }
 
+.rules {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 3rem;
+  margin-top: 2rem;
+  font-family: 'Inconsolata', monospace;
+  background-color: #fff;
+  opacity: 0.8;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  width: 180px;
+  height: 50px;
+  font-size: 1.8rem;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+}
+.rules:hover {
+  opacity: 0.7;
+}
+
+.rules-message {
+  width: 500px;
+  height: 200px;
+  border: none;
+  border-radius: 20px;
+  background: #fff;
+  position: absolute;
+  text-align: center;
+  padding: 2rem 3rem;
+  z-index: 3;
+}
+
+.close {
+  position: absolute;
+  background: chartreuse;
+  z-index: 4;
+  top: 35%;
+  left: 69%;
+  color: #333;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
 .player-active {
   background-color: rgba(255, 255, 255, 0.4);
   transition: all 0.7s ease-in;
+  border-radius: 12px;
+}
+
+.player-winner {
+  background-image: linear-gradient(to bottom right, #9dee9f 0%, #527e5f 100%);
+}
+
+.player-winner .player {
+  font-weight: bold;
+  color: #13415f;
 }
 
 .hidden {
   opacity: 0.001;
+  transition: all 1s ease-in-out;
+}
+
+.hidden-2 {
+  display: none;
+  transition: all 3s ease-in-out;
+}
+
+.hidden-3 {
+  display: none;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 3;
 }
